@@ -1,0 +1,86 @@
+---
+# multilingual page pair id, this must pair with translations of this page. (This name must be unique)
+lng_pair: id_Examples
+title: 오류역전파
+
+# post specific
+# if not specified, .name will be used from _data/owner/[language].yml
+author: Mr. Green's Workshop
+# multiple category is not supported
+category: jekyll
+# multiple tag entries are possible
+tags: [jekyll, sample, example post]
+# thumbnail image for post
+img: ":post_pic1.jpg"
+# disable comments on this page
+#comments_disable: true
+
+# publish date
+date: 2022-08-16 18:30:06 +0900
+
+# seo
+# if not specified, date will be used.
+#meta_modify_date: 2022-08-16 18:30:06 +0900
+# check the meta_common_description in _data/owner/[language].yml
+#meta_description: ""
+
+# optional
+# if you enabled image_viewer_posts you don't need to enable this. This is only if image_viewer_posts = false
+#image_viewer_on: true
+# if you enabled image_lazy_loader_posts you don't need to enable this. This is only if image_lazy_loader_posts = false
+#image_lazy_loader_on: true
+# exclude from on site search
+#on_site_search_exclude: true
+# exclude from search engines
+#search_engine_exclude: true
+# to disable this page, simply set published: false or delete this file
+#published: false
+---
+
+<!-- outline-start -->
+
+This is an example page to display markdown related styles for Mr. Green Jekyll Theme.
+
+<!-- outline-end -->
+
+### 오류 역전파
+{:data-align="center"}
+  
+오류 역전파는 오차가 본래 진행방향과 반대 방향으로 전파 되는것을 의미한다.  
+  
+1. 초기 weight가 정해진다.  
+  
+2. 훈련 데이터 중에서 무작위로 데이터를 골라낸다. (미니 배치)  
+  
+3. 오류 역전파를 이용하여 각 가중치 매개변수에 대한 손실 함수의 기울기를 구한다.  
+  
+4. 기울기를 사용하여 가중치 매개변수를 갱신한다.  
+  
+5. 반복한다.
+
+![image](https://user-images.githubusercontent.com/42092560/185377306-14bac902-4dfa-4209-bb69-9ce57f898b31.png)  
+  
+![image](https://user-images.githubusercontent.com/42092560/185377432-32d7d143-2719-42c0-8c5f-202a08b31cc7.png) : 가중치 매개변수  
+  
+![image](https://user-images.githubusercontent.com/42092560/185377529-3e7ec319-7fa2-40a5-9183-6c50764c082f.png) : 기울기  
+  
+![image](https://user-images.githubusercontent.com/42092560/185377582-6fce4b46-a502-4db9-8191-34e3829ac063.png) : 학습률  
+  
+보통 학습률은 발걸음처럼 묘사가 되는데 확확 변하면 빠르게 최소 loss를 찾을 수 있지만 오히려 밖으로 빠져나올 위험도 있다.  
+  
+그렇다고 너무 작으면 loss를 찾는데 오래 걸리고 또 이상한 loss값에 빠질수도 있다.  
+  
+그러므로 적당한 학습률을 찾는것이 중요하다.  
+  
+옵티마이저는 이러한 과정을 더 잘하도록 도와주는 친구라고 생각하면 된다.
+  
+위에서 나온 미니 배치는 우리가 흔히 쓰는 batch_size이다.  
+  
+미니 배치가 크면 데이터를 많이씩 보는 것을 뜻한다. 그러면 일반화가 잘된다.  
+  
+즉 규칙을 잘 찾아낸다.  
+  
+미니 배치가 작으면 조금씩 보니까 데이터 중에서 특이한 데이터에 집중이될 학률이 높아진다.  
+  
+
+
