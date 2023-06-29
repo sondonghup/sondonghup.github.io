@@ -51,7 +51,7 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 
 h(x) = a + bx
 
-<img width="605" alt="image" src="https://github.com/sondonghup/Game_project/assets/420925609b8e3ec2-9fc4-4887-92ac-3078cc3e797c">
+<img width="605" alt="스크린샷 2023-05-14 오후 5 40 21" src="https://github.com/sondonghup/lyric-translator/assets/42092560/ca4b2c1f-9528-4efa-9c7e-85e7551d8331">
 
 목표 변수 : 맞추려고 하는 값
 (target variable / output variable)
