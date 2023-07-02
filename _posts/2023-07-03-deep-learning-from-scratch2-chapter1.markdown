@@ -170,3 +170,92 @@ print(f"a matmul b :\n{np.matmul(a, b)}")
 순전파 : 신경망 각 계층이 입력으로 부터 출력 방향으로 차례로 전파
 
 역전파 : 순전파와 반대 방향으로 전파
+
+### 1.3 신경망의 학습
+
+***
+
+#### 1.3.1 손실함수
+
+손실 : 학습 단계의 특정 시점에서 신경망의 성능을 나타내는 척도 (실제 정답과의 차이)
+
+손실 함수 : 신경망의 손실을 구하기 위한 함수
+
+cross entropy loss : 다중 클래스 분류시에  사용
+
+binary cross entropy loss : 이진 클래스 분류시에 사용
+
+***
+
+#### 1.3.2 오차역전파
+
+가중치의 기울기를 효과적으로 계산하는 법
+
+1. 결과값을 손실함수로 변환
+
+2. 손실함수의 기울기를 수치 미분
+
+3. 기울기가 0이 되는 지점까지 weight를 변화
+
+오차역전파는 국소적 미분을 연쇄법칙에 따라 순전파의 반대 방향으로 전달한다.
+
+```
+# 곱셈 계층
+
+class MulLayer:
+    def __init__(self):
+        self.x = None
+        self.y = None
+
+    # 순전파
+    def forward(self, x, y):
+        self.x = x
+        self.y = y                
+        out = x * y
+
+        return out
+
+    # 역전파
+    def backward(self, dout):
+        dx = dout * self.y   # x와 y를 교체
+        dy = dout * self.x
+
+        return dx, dy
+```
+
+```
+# 덧셈 계층
+
+class AddLayer:
+    def __init__(self):
+        pass
+
+    # 순전파
+    def forward(self, x, y):
+        out = x + y
+
+        return out
+
+    # 역전파
+    def backward(self, dout):
+        dx = dout * 1
+        dy = dout * 1
+
+        return dx, dy
+```
+
+***
+
+#### 1.3.6 가중치 갱신
+
+예측값과 정답값 간의 차이인 손실 함수의 크기를 최소화시키는 파라미터를 찾는 것
+
+경사하강법(SGD) : 1차 근삿값 발견용 최적화 알고리즘 경사의 절대값이 가장 낮은 극값에 이를때까지 반복하는 것
+
+경사하강법의 단점 
+
+local minima 
+
+<img width="739" alt="image" src="https://github.com/sondonghup/programmers/assets/42092560/33d1975a-6167-45be-9395-6bc78570a18f">
+
+global minima를 찾아야 하지만 local minima에 빠지는 경우
