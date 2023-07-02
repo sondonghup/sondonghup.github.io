@@ -91,6 +91,47 @@ print(f"A * 10 :\n{A * 10}")
  [30 40]]
 ```
 
+```
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+b = np.array([5, 1000])
+
+print(f"A * b :\n{A * b}")
+
+>>> A * b :
+[[   5 2000]
+ [  15 4000]]
+```
+
 #### 1.1.4 벡터의 내적과 행렬의 곱
 
+벡터의 내적
+
+```
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([2, 3, 4])
+
+print(f"a dot b :\n{np.dot(a, b)}")
+
+>>> a dot b :
+20
+```
+
+행렬의 곱
+
+```
+import numpy as np
+
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [5, 4]])
+
+print(f"a matmul b :\n{np.matmul(a, b)}")
+
+>>> a matmul b :
+[[15 14]
+ [35 34]]
+```
 #### 
