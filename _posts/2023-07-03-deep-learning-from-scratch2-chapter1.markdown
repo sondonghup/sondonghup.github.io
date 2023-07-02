@@ -51,6 +51,7 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 
 행렬 : 2차원 배열
 
+
 #### 1.1.2 행렬의 원소별 연산
 
 형상이 같은 행렬의 연산
@@ -73,9 +74,22 @@ print(f"W * X :\n{W * X}")
  [ 2  4  6]]
 ```
 
+
 #### 1.1.3 브로드캐스트
 
 형상이 다른 행렬의 연산
+
+```
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+
+print(f"A * 10 :\n{A * 10}")
+
+>>> A * 10 :
+[[10 20]
+ [30 40]]
+```
 
 #### 1.1.4 벡터의 내적과 행렬의 곱
 
