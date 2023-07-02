@@ -56,10 +56,26 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 형상이 같은 행렬의 연산
 
 ```
+import numpy as np
 
+W = np.array([[1, 3, 5], [2, 4, 6]])
+X = np.array([[0, 1, 2], [1, 1, 1]])
+
+print(f"W + X :\n{W + X}")
+
+print(f"W * X :\n{W * X}")
+
+>>> W + X :
+[[1 4 7]
+ [3 5 7]]
+>>> W * X :
+[[ 0  3 10]
+ [ 2  4  6]]
 ```
 
 #### 1.1.3 브로드캐스트
+
+형상이 다른 행렬의 연산
 
 #### 1.1.4 벡터의 내적과 행렬의 곱
 
