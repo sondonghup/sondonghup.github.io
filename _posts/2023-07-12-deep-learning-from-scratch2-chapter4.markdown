@@ -20,3 +20,19 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 
 CBOW 모델은 단어 2개를 맥락으로 사용해 이를 바탕으로 하나의 단어를 추측
 
+-> 거대한 말뭉치에서는 수많은 뉴런 때문에 많은 시간이 소요
+-> 행렬 곱과 softmax 계층의 계산이 병목
+
+***
+
+#### 4.1.1 Embedding 계층
+
+embedding : 걔층에 단어 임베딩 (분산 표현)을 저장하는 것
+
+원핫 벡터의 모든 값을 matmul 할필요가 없고 단어 ID에 해당되는 행을 추출
+
+***
+
+### 4.2 word2vec 개선 2
+
+은닉층 이후읭
