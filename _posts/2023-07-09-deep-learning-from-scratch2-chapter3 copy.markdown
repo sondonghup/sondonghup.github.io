@@ -53,7 +53,7 @@ CBOW : continuous bag of words
 
 #### 3.2.1 CBOW 모델의 추론 처리 
 
-<img src="./2023-07-09/cbow.webp">
+<img width="616" alt="post-images_dscwinterstudy_5c3fa260-4517-11ea-a244-8f351b0c9082_fig-3-12" src="https://github.com/sondonghup/music_vae/assets/42092560/3f2ebbbd-0486-4f55-96f4-3640949b4f5b">
 
 ***
 
