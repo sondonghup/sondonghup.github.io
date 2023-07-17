@@ -1,7 +1,7 @@
 ---
 layout: post
-title: deep-learning-from-scratch2-chapter5
-subtitle: deep-learning-from-scratch2-chapter5
+title: deep-learning-from-scratch2-chapter4
+subtitle: deep-learning-from-scratch2-chapter4
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
