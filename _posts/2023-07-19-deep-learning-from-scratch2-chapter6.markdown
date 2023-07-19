@@ -22,7 +22,7 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 ### LSTM
 데이터의 시퀀스가 길어지면 일어나는 기울기 손실을 해결하기 위한 3가지 게이트를 가진 LSTM
 
-<img width="589" alt="스크린샷 2023-07-20 오전 3 05 55" src="https://github.com/sondonghup/programmers/assets/42092560/e87cf182-2abb-46c2-b660-7773e1d94676">
+<img src="./2023-07-19/스크린샷 2023-07-20 오전 3.05.55.png">
 
 - forget gate layer
 정보를 버릴지 말지 결정 
@@ -40,4 +40,44 @@ it = sigmoid(np.dot(xt, Wi) + np.dot(ht_1, Ui) + bi)  # input gate
 ot = sigmoid(np.dot(xt, Wo) + np.dot(ht_1, Uo) + bo)  # output gate
 Ct = ft * Ct_1 + it * np.tanh(np.dot(xt, Wc) + np.dot(ht_1, Uc) + bc)
 ht = ot * np.tanh(Ct)
+```
+
+가중치 추출
+```
+names = [weight.name for layer in model.layers for weight in layer.weights]
+weights = model.get_weights()
+
+for name, weight in zip(names, weights):
+    print(name, weight.shape)
+    print(weight)
+
+    layer_type = name.split('/')[1]
+    if layer_type == 'kernel:0':
+        kernel_0 = weight
+    if layer_type == 'recurrent_kernel:0':
+        recurrent_kernel_0 = weight
+    elif layer_type == 'bias:0':
+        bias_0 = weight
+```
+
+```
+units = 5  # LSTM layers
+
+# (3, 20) embedding dims, units * 4
+Wi = kernel_0[:, 0:units]
+Wf = kernel_0[:, units:2 * units]
+Wc = kernel_0[:, 2 * units:3 * units]
+Wo = kernel_0[:, 3 * units:]
+
+# (5, 20) units, units * 4
+Ui = recurrent_kernel_0[:, 0:units]
+Uf = recurrent_kernel_0[:, units:2 * units]
+Uc = recurrent_kernel_0[:, 2 * units:3 * units]
+Uo = recurrent_kernel_0[:, 3 * units:]
+
+# (20,) units * 4
+bi = bias_0[0:units]
+bf = bias_0[units:2 * units]
+bc = bias_0[2 * units:3 * units]
+bo = bias_0[3 * units:]
 ```
