@@ -22,7 +22,7 @@ This is an example page to display markdown related styles for Mr. Green Jekyll 
 ### LSTM
 데이터의 시퀀스가 길어지면 일어나는 기울기 손실을 해결하기 위한 3가지 게이트를 가진 LSTM
 
-<img src="./2023-07-19/스크린샷 2023-07-20 오전 3.05.55.png">
+<img src="./2023-07-19/lstm.png">
 
 - forget gate layer
 정보를 버릴지 말지 결정 
