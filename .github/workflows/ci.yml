@@ -1,15 +1,18 @@
-name: Beautiful Jekyll CI
-on: [push, pull_request]
+name: Build check
+on: [pull_request]
 jobs:
   build:
     name: Build Jekyll
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Build the site in the jekyll/builder container
+      - uses: actions/checkout@v4
+      # GitHub Pages 가 master 를 빌드할 때와 같은 방식으로 빌드한다.
+      - uses: actions/jekyll-build-pages@v1
+      - name: Check generated pages
         run: |
-          export JEKYLL_VERSION=3.8
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-          -e PAGES_REPO_NWO=${{ github.repository }} \
-          jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+          ls -la _site
+          test -f _site/index.html
+          test -f _site/dev/index.html
+          test -f _site/life/index.html
+          test -f _site/aboutme/index.html || test -f _site/aboutme.html
+          test -f _site/404.html
